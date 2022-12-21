@@ -3,7 +3,8 @@
     class="
       bg-transparent
       border-gray-200
-      px-2
+      px-3
+      py-0
       sm:px-4
       rounded
       sticky
@@ -29,7 +30,7 @@
       </a>
       <div class="flex items-center md:order-2">
         <!-- Dropdown -->
-        <button class="py-2 px-3 bg-blue-600 rounded-md text-white">
+        <button class="py-2 px-3 bg-blue-600 rounded-md text-white my-3">
           Hubungi
         </button>
         <button
@@ -72,6 +73,7 @@
           justify-between
           hidden
           w-full
+          my-2
           md:flex md:w-auto md:order-1
         "
         id="mobile-menu-language-select"
@@ -112,7 +114,7 @@
                 duration-200
               "
               :class="{
-                'bg-blue-700 rounded-md md:bg-blue-700 text-white rounded':
+                'bg-blue-700 rounded-md md:bg-blue-700 text-white ':
                   link.active,
                 'text-gray-700 dark:text-gray-400': !link.active,
               }"
