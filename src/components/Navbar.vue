@@ -14,6 +14,7 @@
       dark:bg-gray-900
       backdrop-blur-md
       rounded-bl-lg rounded-br-lg
+      z-50
     "
   >
     <div class="container flex flex-wrap items-center justify-between mx-auto">
@@ -123,11 +124,14 @@
                 'bg-blue-700 rounded-md md:bg-blue-700 text-white': link.active,
                 'text-gray-700 dark:text-gray-400': !link.active,
                 'rounded-br-full': roundedBR,
-                'md:pr-5': roundedBR,
+                'rounded-bl-full': roundedBL,
+                'md:px-5': roundedBR || roundedBL,
               }"
               @click="setActiveLink(link.name)"
               aria-current="page"
-              >{{ link.name }}</a
+              ><span :class="{ 'mr-2': roundedBR, 'ml-2': roundedBL }">{{
+                link.name
+              }}</span></a
             >
           </li>
         </ul>
@@ -145,8 +149,10 @@ export default {
       }));
     },
     roundedBR() {
-      // make rounded bottom right when active link is last
       return this.links[this.links.length - 1].active ? "rounded-br-full" : "";
+    },
+    roundedBL() {
+      return this.links[0].active ? "rounded-bl-full" : "";
     },
   },
   watch: {
