@@ -6,13 +6,14 @@
       px-3
       py-0
       sm:px-4
-      rounded
       sticky
       top-0
       transition-all
       duration-300
       ease-in-out
       dark:bg-gray-900
+      backdrop-blur-md
+      rounded-bl-lg rounded-br-lg
     "
   >
     <div class="container flex flex-wrap items-center justify-between mx-auto">
@@ -81,10 +82,11 @@
         <ul
           class="
             flex flex-col
-            p-4
+            px-4
+            py-2
             mt-4
             border border-gray-100
-            rounded-lg
+            md:rounded-br-full md:rounded-bl-full
             bg-gray-50
             md:flex-row
             md:space-x-8
@@ -96,6 +98,9 @@
             dark:bg-gray-800
             md:dark:bg-gray-900
             dark:border-gray-700
+            transition-all
+            duration-200
+            ease-in-out
           "
         >
           <li v-for="link in links" :key="link.name">
@@ -110,13 +115,15 @@
                 rounded
                 md:px-2 md:py-2
                 dark:text-white
-                transition-colors
+                transition-all
+                ease-in-out
                 duration-200
               "
               :class="{
-                'bg-blue-700 rounded-md md:bg-blue-700 text-white ':
-                  link.active,
+                'bg-blue-700 rounded-md md:bg-blue-700 text-white': link.active,
                 'text-gray-700 dark:text-gray-400': !link.active,
+                'rounded-br-full': roundedBR,
+                'md:pr-5': roundedBR,
               }"
               @click="setActiveLink(link.name)"
               aria-current="page"
@@ -136,6 +143,10 @@ export default {
         ...link,
         active: link.name === this.selectedLink,
       }));
+    },
+    roundedBR() {
+      // make rounded bottom right when active link is last
+      return this.links[this.links.length - 1].active ? "rounded-br-full" : "";
     },
   },
   watch: {
