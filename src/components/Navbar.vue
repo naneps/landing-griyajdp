@@ -88,7 +88,8 @@
             mt-4
             border border-gray-100
             md:rounded-br-full md:rounded-bl-full
-            bg-gray-50
+            bg-gray-300
+            shadow-md
             md:flex-row
             md:space-x-8
             md:mt-0
@@ -198,6 +199,7 @@ export default {
   },
   methods: {
     setActiveLink(link) {
+      console.log("🚀 ~ file: Navbar.vue:202 ~ setActiveLink ~ link", link);
       this.selectedLink = link;
     },
   },

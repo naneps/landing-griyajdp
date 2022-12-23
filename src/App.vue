@@ -3,7 +3,7 @@
     <navbar />
     <HeroSection />
     <ExamplePage id="about" msg="Page 2" background="bg-teal-100" />
-    <ExamplePage id="services" msg="Page 3" background="bg-teal-400" />
+    <ServiceSection />
     <ExamplePage id="pricing" msg="Page 4" background="bg-teal-200" />
     <ExamplePage id="contact" msg="Page 5" background="bg-teal-300" />
     <Footer />
@@ -14,8 +14,9 @@ import Footer from "./components/Footer.vue";
 import Navbar from "./components/Navbar.vue";
 import ExamplePage from "./modules/ExamplePage.vue";
 import HeroSection from "./modules/HeroSection.vue";
+import ServiceSection from "./modules/ServiceSection.vue";
 export default {
-  components: { Navbar, ExamplePage, Footer, HeroSection },
+  components: { Navbar, ExamplePage, Footer, HeroSection, ServiceSection },
   methods: {
     // make color bar random when scroll
     randomColor() {
